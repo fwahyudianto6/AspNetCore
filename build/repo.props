@@ -99,7 +99,7 @@
       </ItemGroup>
 
       <ItemGroup>
-        <ProjectToBuild Condition=" '$(OS)' == 'Windows_NT' AND '$(BuildNative)' == 'true' " Include="$(RepositoryRoot)src\**\*.vcxproj">
+        <ProjectToBuild Condition=" '$(OS)' == 'Windows_NT' AND '$(BuildNative)' == 'true' " Include="$(RepositoryRoot)src\**\*.vcxproj;" Exclude="@(ProjectToExclude)" >
           <!-- Required to prevent triggering double-builds. See src\Servers\IIS\ResolveIisReferences.targets for details. -->
           <AdditionalProperties Condition="'$(SharedFxRid)' == 'win-x64'">Platform=x64</AdditionalProperties>
           <AdditionalProperties Condition="'$(SharedFxRid)' == 'win-x86'">Platform=x86</AdditionalProperties>
